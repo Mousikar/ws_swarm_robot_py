@@ -35,28 +35,33 @@ Step 3 停止小车
 ## C++函数使用
 头文件是swarm_robot_control.cpp
 
+\
 初始化：std::vector<int> swarm_robot_id{1, 2, 3, 4, 5};
 
 SwarmRobot swarm_robot(&nh, swarm_robot_id);
 
+\
 获得单个、多个机器人位姿：getRobotPose
 
 swarm_robot.getRobotPose(i, current_robot_pose); 
 
 swarm_robot.getRobotPose(current_robot_pose); \\输入、输出都是一个n*3的矩阵current_robot_pose
 
+\
 移动单个、多个机器人：moveRobot
 
 移动单个机器人：swarm_robot.moveRobot(i, 0.0, w);
 
 移动多个机器人：swarm_robot.getRobotPose(speed);  \\输入是一个n*2的矩阵speed
 
+\
 停止单个、所有机器人：stopRobot
 
 停止第i个机器人：swarm_robot.stopRobot(i);
 
 停止所有机器人：swarm_robot.stopRobot();
 
+\
 检查速度是否超过上下限：checkVel
 
 w = swarm_robot.checkVel(w, MAX_W, MIN_W);
@@ -64,30 +69,35 @@ w = swarm_robot.checkVel(w, MAX_W, MIN_W);
 ## Python函数使用
 头文件是swarm_robot_control_new.py
 
+\
 初始化：
 
 swarm_robot_id = [1, 2, 3, 4, 5, 6]
 
 swarm_robot = SwarmRobot(swarm_robot_id)
 
+\
 获得单个、多个机器人位姿：getRobotPose
 
 robot_pose = swarm_robot.get_robot_poses(i) 
 
 current_robot_pose = swarm_robot.get_robot_poses()  # 输出是一个n*3的矩阵current_robot_pose
 
+\
 移动单个、多个机器人：moveRobot
 
 移动单个机器人：swarm_robot.move_robot(i, 0.0, w)
 
 移动多个机器人：swarm_robot.move_robots(speed) # 输入是一个n*2的矩阵speed
 
+\
 停止单个、所有机器人：stopRobot
 
 停止第i个机器人：swarm_robot.stop_robot(i)
 
 停止所有机器人：swarm_robot.stop_robots()
 
+\
 检查速度是否超过上下限：checkVel
 
 w = swarm_robot.check_vel(w, MAX_W, MIN_W)
